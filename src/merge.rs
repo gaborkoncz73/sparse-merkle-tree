@@ -28,8 +28,9 @@ where
         return H256::zero();
     }
     let mut hasher = H::default();
-    hasher.write_bytes(&[1u8]);
+    
     hasher.write_bytes(key.as_slice());
     hasher.write_bytes(value.as_slice());
+    hasher.write_bytes(&[1u8]);
     hasher.finish()
 }
