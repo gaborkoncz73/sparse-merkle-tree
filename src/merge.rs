@@ -10,11 +10,11 @@ pub fn merge<H: Hasher + Default>(lhs: &H256, rhs: &H256) -> H256 {
         return *rhs;
     } else if rhs.is_zero() {
         return *lhs;
-    }
+    }*/
     let mut hasher = H::default();
     hasher.write_bytes(lhs.as_slice());
     hasher.write_bytes(rhs.as_slice());
-    hasher.finish()*/
+    hasher.finish()
 }
 
 /// hash_leaf = hash(prefix | key | value)
