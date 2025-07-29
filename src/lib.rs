@@ -87,7 +87,7 @@ pub use tree::SparseMerkleTree;
 /// Expected path size: log2(256) * 2, used for hint vector capacity
 pub const EXPECTED_PATH_SIZE: usize = 16;
 /// Height of sparse merkle tree
-pub const TREE_HEIGHT: usize = 32;
+pub const TREE_HEIGHT: usize = 254;
 /// Key limit size
 pub const KEY_LIMIT: usize = 4_294_967_295u32 as usize;
 
