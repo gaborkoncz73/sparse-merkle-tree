@@ -6,11 +6,11 @@ use crate::Key;
 /// this function is optimized for ZERO_HASH
 /// if one of lhs or rhs is ZERO_HASH, this function just returns the another one
 pub fn merge<H: Hasher + Default>(lhs: &H256, rhs: &H256) -> H256 {
-    if lhs.is_zero() {
+    /*if lhs.is_zero() {
         return *rhs;
     } else if rhs.is_zero() {
         return *lhs;
-    }
+    }*/
     let mut hasher = H::default();
     hasher.write_bytes(lhs.as_slice());
     hasher.write_bytes(rhs.as_slice());
@@ -25,7 +25,9 @@ where
     V: Value,
 {
     if value.is_zero() {
-        return H256::zero();
+        let mut hasher = H::default();
+        hasher.write_bytes(H256::zero().as_slice());
+        return  hasher.finish();
     }
     let mut hasher = H::default();
     hasher.write_bytes(&[1u8]);
