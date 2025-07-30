@@ -25,9 +25,7 @@ where
     V: Value,
 {
     if value.is_zero() {
-        let mut hasher = H::default();
-        hasher.write_bytes(H256::zero().as_slice());
-        return  hasher.finish();
+        return H256::zero();
     }
     let mut hasher = H::default();
     hasher.write_bytes(&[1u8]);
